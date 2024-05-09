@@ -6,14 +6,13 @@
 
 void led_task()
 {   
-    const uint LED_PIN = 29;
-    gpio_init(LED_PIN);
-    gpio_set_dir(LED_PIN, GPIO_OUT);
+    gpio_init(SMARTKNOB_LCD_BACKLIGHT);
+    gpio_set_dir(SMARTKNOB_LCD_BACKLIGHT, GPIO_OUT);
     while (true) {
-        gpio_put(LED_PIN, 1);
-        vTaskDelay(2000);
-        gpio_put(LED_PIN, 0);
-        vTaskDelay(2000);
+        gpio_put(SMARTKNOB_LCD_BACKLIGHT, 1);
+        vTaskDelay(10000);
+        gpio_put(SMARTKNOB_LCD_BACKLIGHT, 0);
+        vTaskDelay(10000);
     }
 }
 
