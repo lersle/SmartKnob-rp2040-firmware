@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 
 # Name project
 SET(ProjectName SmartKnob)
-set(PICO_BOARD smartknob)
+set(PICO_BOARD smartknob_rp2040)
 
 # Set any variables required for importing libraries
 SET(FREERTOS_KERNEL_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/FreeRTOS-Kernel)
