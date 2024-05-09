@@ -11,9 +11,9 @@ void led_task()
     gpio_set_dir(LED_PIN, GPIO_OUT);
     while (true) {
         gpio_put(LED_PIN, 1);
-        vTaskDelay(1000);
+        vTaskDelay(100);
         gpio_put(LED_PIN, 0);
-        vTaskDelay(1000);
+        vTaskDelay(100);
     }
 }
 
