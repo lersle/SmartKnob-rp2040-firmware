@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.12)
 
 # Name project
-SET(ProjectName rp2040-freertos-template)
+SET(ProjectName SmartKnob)
+set(PICO_BOARD arduino_nano_rp2040_connect)
 
 # Set any variables required for importing libraries
 SET(FREERTOS_KERNEL_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/FreeRTOS-Kernel)
