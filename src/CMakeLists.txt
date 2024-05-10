@@ -1,5 +1,6 @@
 add_executable(${ProjectName}
-    main.c
+    main.cpp
+    WS2812.cpp
 )
 
 target_include_directories(${ProjectName} PRIVATE
@@ -8,7 +9,8 @@ target_include_directories(${ProjectName} PRIVATE
 
 target_link_libraries(${ProjectName} 
     pico_stdlib 
-    FreeRTOS-Kernel-Heap4 
+    FreeRTOS-Kernel-Heap4
+    hardware_pio
     )
 
 pico_add_extra_outputs(${ProjectName})

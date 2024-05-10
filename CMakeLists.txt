@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 
 # Name project
-SET(ProjectName SmartKnob)
+SET(ProjectName SmartKnob-rp2040)
 set(PICO_BOARD smartknob_rp2040)
 
 # Set any variables required for importing libraries
@@ -23,3 +23,6 @@ add_subdirectory(src)
 # if you have anything in "lib" folder then uncomment below - remember to add a CMakeLists.txt
 # file to the "lib" directory
 #add_subdirectory(lib)
+
+# generate pio header for ws2812 support
+pico_generate_pio_header(SmartKnob-rp2040 ${CMAKE_CURRENT_LIST_DIR}/src/WS2812.pio)
