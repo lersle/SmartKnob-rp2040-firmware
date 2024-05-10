@@ -17,6 +17,7 @@ extern "C" {
 /************************************
  * INCLUDES
  ************************************/
+#include "WS2812.hpp"
 
 /************************************
  * MACROS AND DEFINES
@@ -33,7 +34,8 @@ extern "C" {
 /************************************
  * GLOBAL FUNCTION PROTOTYPES
  ************************************/
-
+WS2812 LEDInit(uint8_t ledPin, uint8_t numLEDs);
+void LEDTest(WS2812 myLedStrip);
 
 #ifdef __cplusplus
 }

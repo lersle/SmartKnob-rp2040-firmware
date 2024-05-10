@@ -1,6 +1,7 @@
 add_executable(${ProjectName}
     main.cpp
     WS2812.cpp
+    interface_task.cpp
 )
 
 target_include_directories(${ProjectName} PRIVATE
