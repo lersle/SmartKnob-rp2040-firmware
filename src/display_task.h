@@ -17,6 +17,12 @@ extern "C" {
 /************************************
  * INCLUDES
  ************************************/
+#include <Arduino.h>
+#include <TFT_eSPI.h>
+
+#include "logger.h"
+#include "proto_gen/smartknob.pb.h"
+#include "task.h"
 
 /************************************
  * MACROS AND DEFINES
@@ -45,12 +51,7 @@ extern "C" {
 
 #if SK_DISPLAY
 
-#include <Arduino.h>
-#include <TFT_eSPI.h>
 
-#include "logger.h"
-#include "proto_gen/smartknob.pb.h"
-#include "task.h"
 
 class DisplayTask : public Task<DisplayTask> {
     friend class Task<DisplayTask>; // Allow base Task to invoke protected run()
