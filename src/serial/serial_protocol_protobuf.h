@@ -1,6 +1,6 @@
 #pragma once
 
-#include <PacketSerial.h>
+// todo  #include <PacketSerial.h>
 
 #include "../proto_gen/smartknob.pb.h"
 
@@ -11,15 +11,15 @@
 
 class SerialProtocolProtobuf : public SerialProtocol {
     public:
-        SerialProtocolProtobuf(Stream& stream, ConfigCallback config_callback);
-        ~SerialProtocolProtobuf(){};
+        // todo SerialProtocolProtobuf(Stream& stream, ConfigCallback config_callback);
+        // ~SerialProtocolProtobuf(){};
         void log(const char* msg) override;
         void loop() override;
         void handleState(const PB_SmartKnobState& state) override;
     
     private:
-        Stream& stream_;
-        ConfigCallback config_callback_;
+        // todo Stream& stream_;
+        // ConfigCallback config_callback_;
         
         PB_FromSmartKnob pb_tx_buffer_;
         PB_ToSmartknob pb_rx_buffer_;

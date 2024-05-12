@@ -1,7 +1,9 @@
 #pragma once
 
+#include "pico/stdlib.h"
+
 // #include <SimpleFOC.h>
-#include "driver/spi_master.h"
+// todo #include "driver/spi_master.h"
 
 struct MT6701Error {
     bool error;
@@ -9,7 +11,8 @@ struct MT6701Error {
     uint8_t calculated_crc;
 };
 
-class MT6701Sensor : public Sensor {
+// todo class MT6701Sensor : public Sensor {
+class MT6701Sensor {
     public:
         MT6701Sensor();
 
@@ -26,8 +29,8 @@ class MT6701Sensor : public Sensor {
         MT6701Error getAndClearError();
     private:
 
-        spi_device_handle_t spi_device_;
-        spi_transaction_t spi_transaction_ = {};
+        // todo spi_device_handle_t spi_device_;
+        // todo spi_transaction_t spi_transaction_ = {};
 
         float x_;
         float y_;

@@ -15,9 +15,9 @@
 */
 #pragma once
 
-#include <Arduino.h>
+// todo #include <Arduino.h>
 
-#include <driver/uart.h>
+// todo #include <driver/uart.h>
 
 /**
  * Implementation of an Arduino Stream for UART serial communications using the esp uart driver
@@ -26,22 +26,23 @@
  * 
  * This is not a full or optimized implementation; just the minimal necessary for this project.
  */
-class UartStream : public Stream {
+// todo class UartStream : public Stream {
+class UartStream {
     public:
         UartStream();
 
         void begin();
 
-        // Stream methods
-        int available() override;
-        int read() override;
-        int peek() override;
-        void flush() override;
+        // todo // Stream methods
+        // int available() override;
+        // int read() override;
+        // int peek() override;
+        // void flush() override;
 
         // Print methods
-        size_t write(uint8_t b) override;
-        size_t write(const uint8_t *buffer, size_t size) override;
+        // todo size_t write(uint8_t b) override;
+        // size_t write(const uint8_t *buffer, size_t size) override;
 
     private:
-        const uart_port_t uart_port_ = UART_NUM_0;
+        // todo const uart_port_t uart_port_ = UART_NUM_0;
 };

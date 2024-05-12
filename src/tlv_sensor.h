@@ -26,7 +26,7 @@ class TlvSensor {
         float x_;
         float y_;
         uint32_t last_update_;
-        TwoWire* wire_;
+        // todo TwoWire* wire_;
         bool invert_;
 
         bool error_ = false;

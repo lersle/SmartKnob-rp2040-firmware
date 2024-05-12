@@ -5,5 +5,5 @@
 #elif MOTOR_MAD2804
 #include "motors/mad2804.h"
 #else
-#error "No motor configuration specified!"
+// todo #error "No motor configuration specified!"
 #endif

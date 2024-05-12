@@ -1,7 +1,10 @@
 #pragma once
 
-#include <FFat.h>
-#include <PacketSerial.h>
+#include "FreeRTOS.h"
+#include "semphr.h"
+
+// todo #include <FFat.h>
+// todo #include <PacketSerial.h>
 
 #include "proto_gen/smartknob.pb.h"
 
@@ -35,24 +38,24 @@ class Configuration {
 class FatGuard {
     public:
         FatGuard(Logger* logger) : logger_(logger) {
-            if (!FFat.begin(true)) {
-                if (logger_ != nullptr) {
-                    logger_->log("Failed to mount FFat");
-                }
-                return;
-            }
-            if (logger_ != nullptr) {
-                logger_->log("Mounted FFat");
-            }
-            mounted_ = true;
+            // todo if (!FFat.begin(true)) {
+            //     if (logger_ != nullptr) {
+            //         logger_->log("Failed to mount FFat");
+            //     }
+            //     return;
+            // }
+            // if (logger_ != nullptr) {
+            //     logger_->log("Mounted FFat");
+            // }
+            // mounted_ = true;
         }
         ~FatGuard() {
-            if (mounted_) {
-                FFat.end();
-                if (logger_ != nullptr) {
-                    logger_->log("Unmounted FFat");
-                }
-            }
+            // todo if (mounted_) {
+            //     FFat.end();
+            //     if (logger_ != nullptr) {
+            //         logger_->log("Unmounted FFat");
+            //     }
+            // }
         }
         FatGuard(FatGuard const&)=delete;
         FatGuard& operator=(FatGuard const&)=delete;

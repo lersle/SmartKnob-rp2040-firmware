@@ -12,8 +12,8 @@ typedef std::function<void(void)> StrainCalibrationCallback;
 
 class SerialProtocolPlaintext : public SerialProtocol {
     public:
-        SerialProtocolPlaintext(Stream& stream, MotorCalibrationCallback motor_calibration_callback) : SerialProtocol(), stream_(stream), motor_calibration_callback_(motor_calibration_callback) {}
-        ~SerialProtocolPlaintext(){}
+        // todo SerialProtocolPlaintext(Stream& stream, MotorCalibrationCallback motor_calibration_callback) : SerialProtocol(), stream_(stream), motor_calibration_callback_(motor_calibration_callback) {}
+        // ~SerialProtocolPlaintext(){}
         void log(const char* msg) override;
         void loop() override;
         void handleState(const PB_SmartKnobState& state) override;
@@ -21,7 +21,7 @@ class SerialProtocolPlaintext : public SerialProtocol {
         void init(DemoConfigChangeCallback demo_config_change_callback, StrainCalibrationCallback strain_calibration_callback);
     
     private:
-        Stream& stream_;
+        // todo Stream& stream_;
         MotorCalibrationCallback motor_calibration_callback_;
         PB_SmartKnobState latest_state_ = {};
         DemoConfigChangeCallback demo_config_change_callback_;

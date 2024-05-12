@@ -1,5 +1,6 @@
 #include "mt6701_sensor.h"
-#include "driver/spi_master.h"
+#include "pico/stdlib.h"
+// todo #include "driver/spi_master.h"
 
 static const float ALPHA = 0.4;
 

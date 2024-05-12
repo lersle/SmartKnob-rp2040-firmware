@@ -5,8 +5,8 @@
 #include "proto_helpers.h"
 
 #include "crc32.h"
-#include "pb_encode.h"
-#include "pb_decode.h"
+// todo #include "pb_encode.h"
+// todo #include "pb_decode.h"
 #include "serial_protocol_protobuf.h"
 
 static SerialProtocolProtobuf* singleton_for_packet_serial = 0;

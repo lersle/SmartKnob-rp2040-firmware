@@ -1,13 +1,14 @@
 #pragma once
 
-#include <Arduino.h>
-#include <SimpleFOC.h>
-#include <vector>
+// todo #include <Arduino.h>
+// todo #include <SimpleFOC.h>
+// todo #include <vector>
 
 #include "configuration.h"
 #include "logger.h"
 #include "proto_gen/smartknob.pb.h"
 #include "task.h"
+#include "pico/stdlib.h"
 
 
 enum class CommandType {
@@ -51,12 +52,12 @@ class MotorTask : public Task<MotorTask> {
         Configuration& configuration_;
         QueueHandle_t queue_;
         Logger* logger_;
-        std::vector<QueueHandle_t> listeners_;
+        // todo std::vector<QueueHandle_t> listeners_;
         char buf_[72];
 
         // BLDC motor & driver instance
-        BLDCMotor motor = BLDCMotor(1);
-        BLDCDriver6PWM driver = BLDCDriver6PWM(PIN_UH, PIN_UL, PIN_VH, PIN_VL, PIN_WH, PIN_WL);
+        // todo BLDCMotor motor = BLDCMotor(1);
+        // todo BLDCDriver6PWM driver = BLDCDriver6PWM(PIN_UH, PIN_UL, PIN_VH, PIN_VL, PIN_WH, PIN_WL);
 
         void publish(const PB_SmartKnobState& state);
         void calibrate();

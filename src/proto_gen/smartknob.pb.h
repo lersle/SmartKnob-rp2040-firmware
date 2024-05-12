@@ -4,9 +4,10 @@
 #ifndef PB_PB_SMARTKNOB_PB_H_INCLUDED
 #define PB_PB_SMARTKNOB_PB_H_INCLUDED
 // #include <pb.h>
+#include "pico/stdlib.h"
 
 #if PB_PROTO_HEADER_VERSION != 40
-#error Regenerate this file with the current version of nanopb generator.
+// todo #error Regenerate this file with the current version of nanopb generator.
 #endif
 
 /* Struct definitions */
@@ -103,7 +104,7 @@ typedef struct _PB_SmartKnobConfig {
  bounded in size, and is resilient against tightly-packed detents with fast rotation
  since multiple detent positions can be sent in advance; a full round-trip Config-State
  isn't needed between each detent in order to keep up. */
-    pb_size_t detent_positions_count;
+    // todo pb_size_t detent_positions_count;
     int32_t detent_positions[5];
     /* *
  Advanced feature for shifting the defined snap_point away from the center (position 0)
@@ -156,7 +157,7 @@ typedef struct _PB_SmartKnobState {
 /* Message FROM the SmartKnob to the host */
 typedef struct _PB_FromSmartKnob {
     uint8_t protocol_version;
-    pb_size_t which_payload;
+    // todo pb_size_t which_payload;
     union {
         PB_Ack ack;
         PB_Log log;
@@ -172,7 +173,7 @@ typedef struct _PB_RequestState {
 typedef struct _PB_ToSmartknob {
     uint8_t protocol_version;
     uint32_t nonce;
-    pb_size_t which_payload;
+    // todo pb_size_t which_payload;
     union {
         PB_RequestState request_state;
         PB_SmartKnobConfig smartknob_config;
@@ -350,16 +351,16 @@ X(a, STATIC,   SINGULAR, INT32,    press_delta,       2)
 #define PB_StrainCalibration_CALLBACK NULL
 #define PB_StrainCalibration_DEFAULT NULL
 
-extern const pb_msgdesc_t PB_FromSmartKnob_msg;
-extern const pb_msgdesc_t PB_ToSmartknob_msg;
-extern const pb_msgdesc_t PB_Ack_msg;
-extern const pb_msgdesc_t PB_Log_msg;
-extern const pb_msgdesc_t PB_SmartKnobState_msg;
-extern const pb_msgdesc_t PB_SmartKnobConfig_msg;
-extern const pb_msgdesc_t PB_RequestState_msg;
-extern const pb_msgdesc_t PB_PersistentConfiguration_msg;
-extern const pb_msgdesc_t PB_MotorCalibration_msg;
-extern const pb_msgdesc_t PB_StrainCalibration_msg;
+// todo extern const pb_msgdesc_t PB_FromSmartKnob_msg;
+// extern const pb_msgdesc_t PB_ToSmartknob_msg;
+// extern const pb_msgdesc_t PB_Ack_msg;
+// extern const pb_msgdesc_t PB_Log_msg;
+// extern const pb_msgdesc_t PB_SmartKnobState_msg;
+// extern const pb_msgdesc_t PB_SmartKnobConfig_msg;
+// extern const pb_msgdesc_t PB_RequestState_msg;
+// extern const pb_msgdesc_t PB_PersistentConfiguration_msg;
+// extern const pb_msgdesc_t PB_MotorCalibration_msg;
+// extern const pb_msgdesc_t PB_StrainCalibration_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define PB_FromSmartKnob_fields &PB_FromSmartKnob_msg

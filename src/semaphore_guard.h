@@ -15,7 +15,10 @@
 */
 #pragma once
 
-#include <Arduino.h>
+#include "FreeRTOS.h"
+#include "semphr.h"
+
+// todo #include <Arduino.h>
 
 class SemaphoreGuard {
     public:

@@ -15,7 +15,8 @@
 */
 #pragma once
 
-// #include<Arduino.h>
+// todo #include<Arduino.h>
+#include "pico/stdlib.h"
 
 // Static polymorphic abstract base class for a FreeRTOS task using CRTP pattern. Concrete implementations
 // should implement a run() method.
