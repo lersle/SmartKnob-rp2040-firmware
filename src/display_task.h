@@ -1,57 +1,13 @@
-/**
- ********************************************************************************
- * @file    display_task.h
- * @author  lars erni
- * @date    10.05.2024
- * @brief   
- ********************************************************************************
- */
+#pragma once
 
-#ifndef DISPLAY_TASK_H
-#define DISPLAY_TASK_H
+#if SK_DISPLAY
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-/************************************
- * INCLUDES
- ************************************/
 #include <Arduino.h>
 #include <TFT_eSPI.h>
 
 #include "logger.h"
 #include "proto_gen/smartknob.pb.h"
 #include "task.h"
-
-/************************************
- * MACROS AND DEFINES
- ************************************/
-
-/************************************
- * TYPEDEFS
- ************************************/
-
-/************************************
- * EXPORTED VARIABLES
- ************************************/
-
-/************************************
- * GLOBAL FUNCTION PROTOTYPES
- ************************************/
-
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif 
-
-#pragma once
-
-#if SK_DISPLAY
-
-
 
 class DisplayTask : public Task<DisplayTask> {
     friend class Task<DisplayTask>; // Allow base Task to invoke protected run()

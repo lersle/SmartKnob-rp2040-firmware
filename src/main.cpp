@@ -17,20 +17,20 @@ void led_task()
         vTaskDelay(10000);
     }
 }
+
 int main()
 {
+    extern "C" {
+    xTaskCreate(led_task, "LED_Task", 256, NULL, 1, NULL);
+    vTaskStartScheduler();
+    };
+    
     stdio_init_all();
 
     WS2812 myLedStrip = LEDInit(SMARTKNOB_LED_DATA_PIN, SMARTKNOB_NUMLEDS);
-    
-    // 0. Initialize LED strip
-    printf("0. Initialize LED strip");
-    
-
-    //xTaskCreate(led_task, "LED_Task", 256, NULL, 1, NULL);
-    //vTaskStartScheduler();
 
     while(1) {
         LEDTest(myLedStrip);
     };
 }
+

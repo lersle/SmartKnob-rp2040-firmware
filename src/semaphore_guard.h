@@ -15,6 +15,8 @@
 */
 #pragma once
 
+#include <Arduino.h>
+
 class SemaphoreGuard {
     public:
         SemaphoreGuard(SemaphoreHandle_t handle) : handle_{handle} {
