@@ -26,7 +26,7 @@ class SerialProtocolProtobuf : public SerialProtocol {
 
         uint8_t tx_buffer_[PB_FromSmartKnob_size + 4]; // Max message size + CRC32
 
-        PacketSerial_<COBS, 0, (PB_ToSmartknob_size + 4) * 2 + 10> packet_serial_;
+        // todo PacketSerial_<COBS, 0, (PB_ToSmartknob_size + 4) * 2 + 10> packet_serial_;
 
         uint32_t last_nonce_;
 
