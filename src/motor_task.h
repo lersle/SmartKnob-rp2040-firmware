@@ -1,42 +1,66 @@
-/**
- ********************************************************************************
- * @file    motor_task.h
- * @author  lars erni
- * @date    10.05.2024
- * @brief   
- ********************************************************************************
- */
+#pragma once
 
-#ifndef MOTOR_TASK_H
-#define MOTOR_TASK_H
+// todo #include <Arduino.h>
+// todo #include <SimpleFOC.h>
+// todo #include <vector>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-/************************************
- * INCLUDES
- ************************************/
-
-/************************************
- * MACROS AND DEFINES
- ************************************/
-
-/************************************
- * TYPEDEFS
- ************************************/
-
-/************************************
- * EXPORTED VARIABLES
- ************************************/
-
-/************************************
- * GLOBAL FUNCTION PROTOTYPES
- ************************************/
+#include "configuration.h"
+#include "logger.h"
+#include "proto_gen/smartknob.pb.h"
+#include "task.h"
+#include "pico/stdlib.h"
 
 
-#ifdef __cplusplus
-}
-#endif
+enum class CommandType {
+    CALIBRATE,
+    CONFIG,
+    HAPTIC,
+};
 
-#endif 
+struct HapticData {
+    bool press;
+};
+
+struct Command {
+    CommandType command_type;
+    union CommandData {
+        uint8_t unused;
+        PB_SmartKnobConfig config;
+        HapticData haptic;
+    };
+    CommandData data;
+};
+
+class MotorTask : public Task<MotorTask> {
+    friend class Task<MotorTask>; // Allow base Task to invoke protected run()
+
+    public:
+        MotorTask(const uint8_t task_core, Configuration& configuration);
+        ~MotorTask();
+
+        void setConfig(const PB_SmartKnobConfig& config);
+        void playHaptic(bool press);
+        void runCalibration();
+
+        void addListener(QueueHandle_t queue);
+        void setLogger(Logger* logger);
+
+    protected:
+        void run();
+
+    private:
+        Configuration& configuration_;
+        QueueHandle_t queue_;
+        Logger* logger_;
+        // todo std::vector<QueueHandle_t> listeners_;
+        char buf_[72];
+
+        // BLDC motor & driver instance
+        // todo BLDCMotor motor = BLDCMotor(1);
+        // todo BLDCDriver6PWM driver = BLDCDriver6PWM(PIN_UH, PIN_UL, PIN_VH, PIN_VL, PIN_WH, PIN_WL);
+
+        void publish(const PB_SmartKnobState& state);
+        void calibrate();
+        void checkSensorError();
+        void log(const char* msg);
+};
